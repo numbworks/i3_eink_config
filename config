@@ -1,0 +1,181 @@
+# i3 configuration file for e-ink screens (i3_eink_config)
+#
+# Author: numbworks@gmail.com
+# Last update: 24.09.2019
+#
+# If you are running the i3 tiling manager on an eink screen, 
+# you might want to have a custom configuration file that is 
+# optimized for this kind of devices.
+# 
+# This configuration file is meant to be used in in conjuction 
+# with lxappearance => High Contrast, and other per-app settings.
+#
+# This configuration file has been tested on:
+#
+#	- Ubuntu 16.04 and 18.04 
+#	- i3 4.14.1-1
+#	- Dasung Paperlike Pro
+#
+# ...but it should work just fine on any other 13.3' e-ink screen like 
+# the Onyx Boox Max 2 or 3.
+# 
+# Getting started guide:
+#
+# 	1. $ sudo apt install i3
+#	2. $ i3-config-wizard
+#	3. Select the modifier key ($mod) you prefere - for ex. the Windows key
+#	3. $ mkdir /home/<your_username>/Doduments/i3_eink_config
+#	4. $ cd /home/<your_username>/Doduments/i3_eink_config
+#	5. $ git clone https://github.com/numbworks/i3_eink_config.git
+#	6. $ mv config /home/<your_username>/.config/i3/config
+#	7. Reload the configuration file with: $mod+shift+c
+# 	8. Done!
+#
+
+# ---- Customized settings ----
+
+font pango:DejaVu Sans Mono 14
+
+# start dmenu with custom colors
+# -nb = background, -nf = foreground, -sb = selected background, -sf = selected foreground, -fn = font
+bindsym $mod+d exec dmenu_run -nb '#ffffff' -sb '#ffffff' -nf '#000000' -sf '#000000' -fn 'Ubuntu-16'
+
+# exit i3 (logs you out of your X session)
+# custom font is used in order to increase the size of the nagbar
+bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:monospace 14' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# custom colors for i3bar
+bar {
+        status_command i3status
+        tray_output primary
+        
+        colors {
+			background #ffffff
+			statusline #000000
+		}        
+}
+
+client.background #ffffff
+
+# custom window titles colors
+# class                 border  bground text    indicator child_border
+client.focused          #000000 #FFFFFF #000000 #000000   #000000
+client.focused_inactive #000000 #FFFFFF #000000 #000000   #000000
+client.unfocused        #000000 #FFFFFF #AAAAAA #000000   #000000
+client.urgent           #000000 #FFFFFF #000000 #000000   #000000
+client.placeholder      #000000 #FFFFFF #000000 #000000   #000000
+
+# add custom keyboard layouts and associate ALT+Shift as shortcut
+exec "setxkbmap -layout se,it -option 'grp:alt_shift_toggle'"
+
+# ---- Default settings ----
+
+set $mod Mod4
+floating_modifier $mod
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
