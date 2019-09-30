@@ -1,7 +1,6 @@
 ## i3 configuration file for e-ink screens (i3_eink_config)
 
-Author: numbworks@gmail.com
-Last update: 24.09.2019
+Author: numbworks@gmail.com | Last update: 24.09.2019
 
 If you are running the **i3 tiling manager** on an **eink screen**,  you might want to have a custom configuration file that is optimized for this kind of devices.
 
