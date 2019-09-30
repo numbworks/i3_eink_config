@@ -1,4 +1,4 @@
-##i3 configuration file for e-ink screens (i3_eink_config)
+## i3 configuration file for e-ink screens (i3_eink_config)
 
 Author: numbworks@gmail.com
 Last update: 24.09.2019
@@ -15,7 +15,7 @@ This configuration file has been tested on:
 
 ...but it should work just fine **on any other 13.3' e-ink screen** like the Onyx Boox Max 2 or 3.
 
-####Getting started guide:
+#### Getting started guide:
 
 ```bash
 $ sudo apt install i3
@@ -33,6 +33,6 @@ $ mv config /home/<your_username>/.config/i3/config
 	
 Reload the configuration file with: $mod+shift+c.
  
-####Screenshot:
+#### Screenshot:
  
  ![i3_eink_config screenshot](i3_eink_config.png  "i3_eink_config screenshot")
