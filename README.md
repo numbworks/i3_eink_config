@@ -45,10 +45,10 @@ Reload the configuration file with `$mod+shift+c`.
  
 ## Screenshots
  
-![i3_eink_config_screenshot.png](Pictures\i3_eink_config_screenshot.png)
+![i3_eink_config_screenshot.png](Pictures/i3_eink_config_screenshot.png)
 
 ## Pictures
  
-![i3_eink_config_01.png](Pictures\i3_eink_config_01.png)
-![i3_eink_config_02.png](Pictures\i3_eink_config_02.png)
-![i3_eink_config_03.png](Pictures\i3_eink_config_03.png)
+![i3_eink_config_01.png](Pictures/i3_eink_config_01.png)
+![i3_eink_config_02.png](Pictures/i3_eink_config_02.png)
+![i3_eink_config_03.png](Pictures/i3_eink_config_03.png)
